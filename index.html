@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171018">
+  <title>The Case of the Missing Heart — For Wijdane</title>
+  <style>
+    :root{--bg:#100d13;--panel:#1d1720;--panel2:#261b26;--ink:#f7edf1;--muted:#c6b3be;--rose:#f16a87;--rose2:#a62d4b;--gold:#e6c58b;--line:#4a3444;--good:#9fe0bd}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(ellipse at top,#38202f 0%,var(--bg) 55%);color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif;min-height:100vh}
+    button,input{font:inherit}
+    .wrap{max-width:850px;margin:auto;padding:24px 16px 56px}
+    .topline{display:flex;justify-content:space-between;gap:12px;align-items:center;color:var(--gold);font:700 .75rem/1.4 system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    .seal{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#f16a87,#8d1e3d);box-shadow:0 0 35px #f16a8733;font-size:1.7rem}
+    header{text-align:center;padding:28px 0 24px}
+    .eyebrow{color:var(--rose);text-transform:uppercase;letter-spacing:.22em;font:700 .75rem system-ui,sans-serif}
+    h1{font-size:clamp(2.2rem,7vw,4.5rem);line-height:1.04;margin:12px 0 16px;letter-spacing:-.04em}
+    h1 span{color:var(--rose)}
+    .subtitle{max-width:600px;margin:0 auto;color:var(--muted);font-size:1.1rem}
+    .case-stamp{display:inline-block;margin-top:22px;border:1px solid var(--rose2);color:#ffb1c2;padding:7px 13px;transform:rotate(-2deg);font:700 .72rem system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    .progress-shell{background:#ffffff0b;border:1px solid var(--line);padding:15px;border-radius:15px;margin:12px 0 22px}
+    .progress-label{display:flex;justify-content:space-between;gap:10px;font:700 .8rem system-ui,sans-serif;color:var(--muted);margin-bottom:9px}
+    .track{height:7px;background:#3c2a37;border-radius:99px;overflow:hidden}.bar{height:100%;width:0;background:linear-gradient(90deg,var(--rose2),var(--rose));transition:width .3s}
+    .card{background:linear-gradient(145deg,#241b26ee,#17131bee);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,5vw,36px);box-shadow:0 20px 60px #0003}
+    .stage-kicker{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;color:var(--gold);font:700 .75rem system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+    .pill{border:1px solid #704051;color:#ffc1ce;border-radius:99px;padding:4px 9px;letter-spacing:.05em}
+    h2{font-size:clamp(1.7rem,5vw,2.5rem);line-height:1.15;margin:16px 0 12px}
+    p{margin:12px 0}.story{color:#e7d9e0;font-size:1.06rem}
+    .evidence{margin:22px 0;padding:19px;border-left:3px solid var(--rose);background:#f16a870d;border-radius:0 12px 12px 0}
+    .evidence-label{font:700 .7rem system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--rose)}
+    .cipher{font-size:clamp(1.3rem,4vw,2rem);letter-spacing:.12em;text-align:center;color:var(--gold);overflow-wrap:anywhere;margin:10px 0}
+    .hint{border:1px dashed #745163;border-radius:12px;padding:12px 14px;color:var(--muted);font-size:.94rem;margin:18px 0}
+    label{display:block;font:700 .83rem system-ui,sans-serif;color:var(--muted);margin:18px 0 7px}
+    input{width:100%;padding:13px 14px;background:#100d13;color:var(--ink);border:1px solid #654557;border-radius:11px;outline:none}
+    input:focus{border-color:var(--rose);box-shadow:0 0 0 3px #f16a8720}
+    .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    button{cursor:pointer;border:0;border-radius:11px;padding:12px 17px;font-weight:700}
+    .primary{background:linear-gradient(135deg,var(--rose),#bd3a5b);color:#210d15;flex:1}
+    .secondary{background:#332431;color:var(--ink);border:1px solid #654557}
+    button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .feedback{min-height:28px;margin-top:10px;color:var(--gold);font-size:.95rem}
+    .feedback.good{color:var(--good)}.feedback.bad{color:#ff9fb2}
+    .letter{background:#f3e5ce;color:#422833;padding:clamp(20px,5vw,36px);border-radius:5px;box-shadow:0 12px 30px #0005;position:relative}
+    .letter:before{content:"";position:absolute;inset:9px;border:1px solid #b99c91;pointer-events:none}
+    .letter h2{color:#722b42}.letter p{position:relative}
+    .letter-sign{font-style:italic;font-size:1.25rem;color:#8b2b47}
+    .foot{color:#9d8995;text-align:center;font: .8rem/1.6 system-ui,sans-serif;margin:22px auto 0;max-width:600px}
+    .hidden{display:none!important}
+    .hearts{color:var(--rose);letter-spacing:.35em}
+    @media(min-width:650px){.wrap{padding-top:34px}.card{padding:38px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topline"><span>Private investigation · File 001</span><div class="seal" aria-hidden="true">♥</div></div>
+  <header>
+    <div class="eyebrow">A romantic detective mystery</div>
+    <h1>The Case of the<br><span>Missing Heart</span> ❤️‍🩹</h1>
+    <p class="subtitle">Prepared exclusively for <strong>Wijdane</strong>. Six clues. One missing detective. One truth worth finding.</p>
+    <div class="case-stamp">Confidential · Follow the evidence</div>
+  </header>
+
+  <div class="progress-shell" aria-label="Investigation progress">
+    <div class="progress-label"><span id="progressText">Evidence collected: 0 of 6</span><span id="progressPct">0%</span></div>
+    <div class="track"><div class="bar" id="progressBar"></div></div>
+  </div>
+
+  <main class="card" id="game" aria-live="polite"></main>
+  <p class="foot">A small mystery made with care. Answers unlock the next stage on this device. ❤️</p>
+</div>
+
+<script>
+(() => {
+  const stages = [
+    {
+      title:"The Case File", tag:"Evidence A · The first message",
+      story:"Wijdane, the first report arrived at 23:59. A detective vanished, leaving no footprints—only a coded message. The note says: “A is 1, B is 2, and so on. Find the word that went missing.”",
+      clue:"8 — 5 — 1 — 18 — 20",
+      hint:"Convert each number into its matching letter. Read the letters in order.",
+      answer:["heart"],
+      success:"The word is HEART. But the note continues: “A heart remembers where its story began.”",
+      next:"Your next lead is hidden in a memory."
+    },
+    {
+      title:"Where It Began", tag:"Evidence B · A memory",
+      story:"Inside the file is a postcard: “The best stories begin with a place—not a date. Find the place where two paths first crossed, or where your story truly began.”",
+      clue:"THE PLACE WHERE OUR STORY BEGAN",
+      hint:"Use a meaningful place from your own story. If you are adapting this template, change the accepted answer in the source code to a place only Wijdane would know.",
+      answer:["our beginning","the beginning","first meeting","our first meeting","where we met","the place"],
+      success:"The memory fits. A second note is tucked behind the postcard: “Every path leaves a trace. Follow the digital one.”",
+      next:"A trail of letters is waiting online."
+    },
+    {
+      title:"The Digital Footprint", tag:"Evidence C · Online trail",
+      story:"The missing detective left a string of letters in a browser history. The instruction beside it reads: “Read every other letter, starting with the first.”",
+      clue:"H X E Q A Z R P T",
+      hint:"Take the 1st, 3rd, 5th, 7th, and 9th letters. The result is the clue word.",
+      answer:["heart"],
+      success:"The hidden word is HEART again. Someone is trying to tell you that the heart is not an object—it is the reason for the case.",
+      next:"Now put the pieces together."
+    },
+    {
+      title:"The Missing Piece", tag:"Evidence D · The pattern",
+      story:"Three statements are written on the back of a photograph: “A secret can be kept. A promise can be made. Love can be shown.” What connects them?",
+      clue:"KEEP · PROMISE · SHOW",
+      hint:"Think of the thing that turns all three into something meaningful between two people.",
+      answer:["trust","love","care"],
+      success:"Trust is the missing piece. The detective's diary says: “I was never trying to test your worth. I was leaving reminders of what matters.”",
+      next:"One suspect remains."
+    },
+    {
+      title:"The Final Suspect", tag:"Evidence E · The truth",
+      story:"The final interview contains one question: “Who could have taken the detective's heart without breaking a lock, leaving a trace, or forcing a door?”",
+      clue:"Someone who was given it willingly.",
+      hint:"This is a romantic riddle, not a real crime. The answer is the person the detective chose to trust with their heart.",
+      answer:["wijdane","you","the one i love","the person i love"],
+      success:"Case theory confirmed: Wijdane is the one trusted with the detective's heart. The last envelope can now be opened.",
+      next:"The final letter is ready."
+    },
+    {
+      title:"The Truth", tag:"Evidence F · Final envelope",
+      story:"You have followed every clue, Wijdane. There is no more code to break and no more suspect to question. Only the letter remains.",
+      clue:"THE LAST QUESTION: WILL YOU KEEP THIS HEART SAFE?",
+      hint:"Enter SAFE to open the letter.",
+      answer:["safe","yes","i will"],
+      success:"The case is closed. The letter is yours.",
+      next:""
+    }
+  ];
+  const game = document.getElementById("game");
+  const progressText = document.getElementById("progressText");
+  const progressPct = document.getElementById("progressPct");
+  const progressBar = document.getElementById("progressBar");
+  let stageIndex = 0;
+  let solved = new Set();
+
+  function updateProgress(){
+    const n = solved.size;
+    progressText.textContent = `Evidence collected: ${n} of 6`;
+    const pct = Math.round(n/6*100);
+    progressPct.textContent = `${pct}%`;
+    progressBar.style.width = `${pct}%`;
+  }
+  function render(){
+    updateProgress();
+    if(stageIndex >= stages.length){ renderLetter(); return; }
+    const s = stages[stageIndex];
+    game.innerHTML = `
+      <div class="stage-kicker"><span>Stage ${stageIndex+1} of 6</span><span class="pill">${s.tag}</span></div>
+      <h2>${s.title}</h2>
+      <p class="story">${s.story}</p>
+      <div class="evidence"><div class="evidence-label">Recovered evidence</div><div class="cipher">${s.clue}</div></div>
+      <div class="hint"><strong>Investigator's note:</strong> ${s.hint}</div>
+      <form id="answerForm">
+        <label for="answer">Your conclusion</label>
+        <input id="answer" name="answer" autocomplete="off" placeholder="Enter your answer…" required>
+        <div class="actions"><button class="primary" type="submit">Submit evidence ↗</button><button class="secondary" type="button" id="hintBtn">Need a hint?</button></div>
+        <div class="feedback" id="feedback" role="status"></div>
+      </form>
+    `;
+    document.getElementById("hintBtn").addEventListener("click", () => {
+      const fb = document.getElementById("feedback");
+      fb.textContent = s.hint;
+      fb.className = "feedback";
+    });
+    document.getElementById("answerForm").addEventListener("submit", e => {
+      e.preventDefault();
+      const val = document.getElementById("answer").value.trim().toLowerCase().replace(/[’']/g,"").replace(/[.!?]/g,"");
+      const fb = document.getElementById("feedback");
+      if(s.answer.includes(val)){
+        solved.add(stageIndex);
+        fb.textContent = s.success;
+        fb.className = "feedback good";
+        updateProgress();
+        const btn = document.createElement("button");
+        btn.type = "button"; btn.className = "primary"; btn.style.marginTop = "10px";
+        btn.textContent = stageIndex === 5 ? "Open the final letter ♥" : "Unlock next clue →";
+        btn.addEventListener("click", () => { stageIndex++; render(); window.scrollTo({top:0,behavior:"smooth"}); });
+        document.getElementById("answerForm").appendChild(btn);
+        document.getElementById("answer").disabled = true;
+        document.querySelector("#answerForm button[type=submit]").disabled = true;
+      } else {
+        fb.textContent = "Not quite. Re-read the evidence, take a breath, and try again. The truth is close.";
+        fb.className = "feedback bad";
+      }
+    });
+  }
+  function renderLetter(){
+    updateProgress();
+    game.innerHTML = `
+      <div class="stage-kicker"><span>Case closed</span><span class="pill">For Wijdane's eyes only</span></div>
+      <h2>The Final Truth: My Heart Belongs to You ❤️</h2>
+      <p class="story">Investigation complete, Wijdane. You found the missing heart. Now discover what it has been trying to tell you all along.</p>
+      <div class="letter">
+        <h2>To my Wijdane, my love, my favorite person, ❤️</h2>
+        <p>If you're reading this, it means you've solved every clue and found the truth behind the missing heart. Now there are no riddles or secrets—just my heart speaking honestly to yours.</p>
+        <p>Wijdane, I don't think you'll ever fully understand how much you've changed my life. You brought something beautiful into my world and gave me a happiness I can't always explain with words. You made me realize how special it is to have someone who means so much to you.</p>
+        <p>Thank you for loving me. Thank you for your patience, care, kindness, and every little thing you do that might seem ordinary to you but means the world to me. I appreciate your heart, your effort, your time, and the person you are. I see your love, I value it, and I carry it with me even when we're far apart.</p>
+        <p>The distance hurts sometimes. I wish I could be beside you, hold you close, and tell you all of this without a screen between us. I wish I could turn every “I miss you” into a hug. But distance is something we have to get through, not a reason for me to give up on us.</p>
+        <p><strong>I love you so much, Wijdane. More than these words can explain. ❤️</strong></p>
+        <p>When I think about tomorrow, I imagine the day distance will finally be behind us. I think about seeing you, holding your hand, building a life together, and looking back at these difficult days knowing we made it through them.</p>
+        <p><strong>I don't want you just for a moment. I want to keep choosing you for the life ahead of us.</strong></p>
+        <p>I want to stay by your side, love you, grow with you, and work through life's difficult days together. I want us to understand each other better and build a love that grows stronger through the years.</p>
+        <p>I want you to be the woman I marry one day. I dream of the day I can call you my wife and hold you close without counting the kilometers between us. I know a beautiful future takes patience, effort, honesty, and commitment, and I'm ready to keep working toward that future with you.</p>
+        <p>I can't promise every day will be perfect, but my love for you is serious. I want you to feel loved, appreciated, respected, and safe—not only through beautiful words, but through how I treat you every day.</p>
+        <p>Thank you for coming into my life and changing it in ways you'll probably never completely realize. Thank you for being you and for giving me a love I treasure with all my heart.</p>
+        <p><strong>Until the day we begin our life together as husband and wife, I'll keep choosing you, loving you, and looking forward to our tomorrow.</strong></p>
+        <p>You are so precious to me, Wijdane. Never doubt how much you mean to me.</p>
+        <p><em>The case is closed. The heart has been found. And the person it belongs to is you.</em></p>
+        <p><strong>I love you, Wijdane. Today, tomorrow, and through every chapter of the story we still have to write together. ❤️‍🩹💍</strong></p>
+        <p class="letter-sign">Forever hoping for our beautiful future,<br>Your boy, your love, and your future husband. ❤️</p>
+      </div>
+      <div class="actions"><button class="primary" id="replay">Replay the investigation ↻</button><button class="secondary" id="copyLetter">Copy a message to send</button></div>
+      <div class="feedback" id="finalFeedback" role="status"></div>
+    `;
+    document.getElementById("replay").addEventListener("click", () => {stageIndex=0;solved.clear();render();window.scrollTo({top:0,behavior:"smooth"});});
+    document.getElementById("copyLetter").addEventListener("click", async () => {
+      const message = "Wijdane ❤️‍🩹 You solved The Case of the Missing Heart. The truth is simple: this mystery was my way of reminding you how much you mean to me. Distance can't erase the memories, laughter, and moments I look forward to sharing with you. With all my affection, your missing detective.";
+      const fb = document.getElementById("finalFeedback");
+      try { await navigator.clipboard.writeText(message); fb.textContent = "Message copied. You can paste it into your chat with Wijdane."; }
+      catch { fb.textContent = message; }
+    });
+  }
+  render();
+})();
+</script>
+</body>
+</html>
